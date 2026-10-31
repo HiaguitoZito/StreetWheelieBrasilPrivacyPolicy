@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c0b">
+  <meta name="description" content="Privacy Policy for Street Wheelie Brasil. Learn what information may be processed when you play online, view ads, or make in-game purchases.">
+  <title>Privacy Policy — Street Wheelie Brasil</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080c0b;
+      --surface: #101715;
+      --surface-raised: #141d19;
+      --line: #27332d;
+      --text: #edf3ef;
+      --muted: #a8b6ae;
+      --green: #19d878;
+      --green-soft: rgba(25, 216, 120, .11);
+      --yellow: #f3d21b;
+      --blue: #356dd6;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 76% -10%, rgba(24, 116, 70, .22), transparent 35rem),
+        radial-gradient(ellipse at 8% 38%, rgba(30, 62, 48, .12), transparent 32rem),
+        var(--bg);
+      color: var(--text);
+      font: 16px/1.72 ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: #72e9a9; text-underline-offset: .2em; }
+    a:hover { color: #b1f6ce; }
+    button { font: inherit; }
+    .skip-link {
+      position: absolute; z-index: 5; top: 10px; left: 10px;
+      padding: 10px 14px; border-radius: 8px; background: var(--text); color: var(--bg);
+      transform: translateY(-160%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      width: min(var(--max), calc(100% - 48px));
+      min-height: 100px; margin: 0 auto; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px; border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .brand { display: inline-flex; align-items: center; min-width: 0; }
+    .brand img { display: block; width: clamp(190px, 26vw, 310px); height: auto; }
+    .header-tools { display: flex; align-items: center; gap: 13px; }
+    .policy-label {
+      color: var(--muted); font-size: .72rem; font-weight: 750; letter-spacing: .17em;
+      text-transform: uppercase; white-space: nowrap;
+    }
+    .language-toggle {
+      display: inline-flex; align-items: center; gap: 3px; padding: 4px;
+      border: 1px solid var(--line); border-radius: 999px; background: #0c1210;
+    }
+    .language-toggle button {
+      min-width: 44px; padding: 7px 10px; color: var(--muted); border: 0; border-radius: 999px;
+      background: transparent; cursor: pointer; font-size: .76rem; font-weight: 750;
+    }
+    .language-toggle button[aria-pressed="true"] { color: #06110a; background: var(--green); }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+    .page-shell { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; padding: 58px 0 68px; }
+    .page-intro { max-width: 850px; padding: 0 0 30px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 17px;
+      color: #8feeb8; font-size: .74rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 20px; height: 2px; background: var(--green); }
+    h1 {
+      margin: 0; font-size: clamp(2.55rem, 6vw, 4.8rem); line-height: 1.04;
+      letter-spacing: -.055em; font-weight: 780;
+    }
+    .intro-copy { max-width: 690px; margin: 18px 0 20px; color: #b8c4bd; font-size: clamp(1rem, 2vw, 1.16rem); }
+    .metadata { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; color: var(--muted); font-size: .86rem; }
+    .metadata .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--green); }
+    .metadata strong { color: #e2ebe5; font-weight: 650; }
+
+    .content-grid { display: grid; grid-template-columns: 215px minmax(0, 790px); gap: clamp(32px, 6vw, 82px); align-items: start; }
+    .contents { position: sticky; top: 28px; padding: 17px 0; }
+    .contents-title { margin: 0 0 12px; color: #e0e9e3; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .contents nav { display: grid; gap: 2px; border-left: 1px solid var(--line); }
+    .contents a {
+      display: block; padding: 6px 10px 6px 14px; margin-left: -1px; border-left: 1px solid transparent;
+      color: #9ca9a1; font-size: .82rem; line-height: 1.45; text-decoration: none;
+    }
+    .contents a:hover, .contents a:focus-visible { color: #b4f3ce; border-left-color: var(--green); }
+
+    .policy-body { min-width: 0; }
+    .policy-section {
+      padding: 0 0 30px; margin: 0 0 31px; border-bottom: 1px solid rgba(255,255,255,.085);
+      scroll-margin-top: 24px;
+    }
+    .policy-section:last-child { border-bottom: 0; }
+    .section-heading { display: flex; align-items: flex-start; gap: 14px; margin: 0 0 14px; }
+    .section-number {
+      flex: 0 0 32px; display: grid; place-items: center; width: 32px; height: 32px; margin-top: 1px;
+      border: 1px solid rgba(25,216,120,.24); border-radius: 9px; color: var(--green); background: var(--green-soft);
+      font-size: .75rem; font-weight: 800; font-variant-numeric: tabular-nums;
+    }
+    h2 { margin: 0; color: #f0f5f1; font-size: 1.28rem; line-height: 1.4; letter-spacing: -.02em; }
+    h3 { margin: 22px 0 5px; color: #e0e9e3; font-size: .97rem; line-height: 1.45; }
+    .policy-section p { margin: 8px 0; color: #b4c0b9; font-size: .94rem; }
+    .policy-section ul { margin: 10px 0 9px; padding-left: 22px; color: #b4c0b9; font-size: .94rem; }
+    .policy-section li { padding-left: 4px; margin: 5px 0; }
+    .policy-section li::marker { color: var(--green); }
+    .inline-card {
+      margin: 14px 0 11px; padding: 14px 16px; border: 1px solid var(--line);
+      border-radius: 11px; background: rgba(255,255,255,.025);
+    }
+    .inline-card strong { display: block; margin-bottom: 4px; color: #e8f0eb; font-size: .88rem; }
+    .inline-card p { margin: 0; font-size: .9rem; }
+    .placeholder {
+      color: #fff1a5; background: rgba(243,210,27,.12); border-bottom: 1px dashed rgba(243,210,27,.7);
+      padding: 0 3px; border-radius: 3px;
+    }
+    .contact-card {
+      padding: 20px; border: 1px solid rgba(25,216,120,.25); border-radius: 13px;
+      background: linear-gradient(135deg, rgba(25,216,120,.08), rgba(255,255,255,.02));
+    }
+    .contact-card p { margin-bottom: 4px; }
+    .contact-line { display: flex; flex-wrap: wrap; gap: 7px 18px; margin-top: 12px; color: var(--muted); font-size: .88rem; }
+
+    .site-footer {
+      width: min(var(--max), calc(100% - 48px)); margin: 12px auto 0; padding: 22px 0 35px;
+      display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.08);
+      color: #84928a; font-size: .78rem;
+    }
+    .footer-mark { display: inline-flex; align-items: center; gap: 8px; color: #b5c1b9; font-weight: 700; }
+    .flag-stripe { display: inline-flex; overflow: hidden; width: 22px; height: 3px; border-radius: 4px; background: linear-gradient(90deg, var(--green) 0 55%, var(--yellow) 55% 78%, var(--blue) 78%); }
+    [hidden] { display: none !important; }
+
+    @media (max-width: 820px) {
+      .site-header, .page-shell, .site-footer { width: min(100% - 36px, 720px); }
+      .site-header { min-height: 82px; }
+      .policy-label { display: none; }
+      .page-shell { padding-top: 43px; }
+      .content-grid { grid-template-columns: 1fr; gap: 12px; }
+      .contents { position: static; padding: 14px; margin: 0 0 26px; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,255,255,.02); }
+      .contents nav { grid-template-columns: repeat(2, minmax(0, 1fr)); border-left: 0; }
+      .contents a { padding: 7px 8px; margin: 0; border-left: 0; border-radius: 6px; }
+      .contents a:hover, .contents a:focus-visible { background: var(--green-soft); }
+    }
+    @media (max-width: 520px) {
+      .site-header, .page-shell, .site-footer { width: calc(100% - 32px); }
+      .site-header { min-height: 72px; gap: 10px; }
+      .brand img { width: min(56vw, 220px); }
+      .header-tools { gap: 0; }
+      .language-toggle button { min-width: 38px; padding: 7px 8px; }
+      .page-shell { padding-top: 36px; }
+      .contents nav { grid-template-columns: 1fr 1fr; }
+      .site-footer { flex-direction: column; gap: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+    @media print {
+      :root { color-scheme: light; --text: #151a17; --muted: #4f5b54; }
+      body { background: white; color: #151a17; font-size: 11pt; }
+      .site-header, .contents, .site-footer, .language-toggle { display: none !important; }
+      .page-shell { width: auto; padding: 0; }
+      .content-grid { display: block; }
+      .policy-section { break-inside: avoid; border-color: #ddd; }
+      .policy-section p, .policy-section ul { color: #27312b; }
+      h1, h2, h3 { color: #111; }
+      [hidden] { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#policy-content">Skip to privacy policy</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Street Wheelie Brasil privacy policy">
+      <img src="assets/street-wheelie-brasil-logo.png" alt="Street Wheelie Brasil">
+    </a>
+    <div class="header-tools">
+      <span class="policy-label">Privacy policy</span>
+      <div class="language-toggle" role="group" aria-label="Choose language">
+        <button type="button" data-language-button="en" aria-pressed="true" lang="en">EN</button>
+        <button type="button" data-language-button="pt-BR" aria-pressed="false" lang="pt-BR">PT-BR</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell" id="top">
+    <div class="page-intro">
+      <div class="eyebrow">Street Wheelie Brasil</div>
+      <div data-policy-lang="en" lang="en">
+        <h1>Privacy Policy</h1>
+        <p class="intro-copy">This policy explains how information may be handled when you play Street Wheelie Brasil, use its online features, view ads, or make in-game purchases.</p>
+        <div class="metadata"><span>Effective date</span><span class="dot"></span><strong>October 29, 2026</strong><span class="dot"></span><span>English</span></div>
+      </div>
+      <div data-policy-lang="pt-BR" lang="pt-BR" hidden>
+        <h1>Política de Privacidade</h1>
+        <p class="intro-copy">Esta política explica como as informações podem ser tratadas quando você joga Street Wheelie Brasil, usa os recursos online, visualiza anúncios ou faz compras no jogo.</p>
+        <div class="metadata"><span>Vigente desde</span><span class="dot"></span><strong>29 de outubro de 2026</strong><span class="dot"></span><span>Português</span></div>
+      </div>
+    </div>
+
+    <div class="content-grid" id="policy-content">
+      <aside class="contents" aria-label="Policy contents">
+        <div data-policy-lang="en" lang="en">
+          <p class="contents-title">On this page</p>
+          <nav aria-label="Privacy policy sections">
+            <a href="#en-scope">Who we are</a>
+            <a href="#en-data">Information handled</a>
+            <a href="#en-uses">How it is used</a>
+            <a href="#en-ads">Advertising</a>
+            <a href="#en-purchases">Purchases</a>
+            <a href="#en-sharing">Sharing</a>
+            <a href="#en-retention">Retention and deletion</a>
+            <a href="#en-rights">Your choices and rights</a>
+            <a href="#en-children">Children</a>
+            <a href="#en-security">Security and changes</a>
+            <a href="#en-contact">Contact</a>
+          </nav>
+        </div>
+        <div data-policy-lang="pt-BR" lang="pt-BR" hidden>
+          <p class="contents-title">Nesta página</p>
+          <nav aria-label="Seções da política de privacidade">
+            <a href="#pt-escopo">Quem somos</a>
+            <a href="#pt-dados">Informações tratadas</a>
+            <a href="#pt-usos">Como são usadas</a>
+            <a href="#pt-anuncios">Publicidade</a>
+            <a href="#pt-compras">Compras</a>
+            <a href="#pt-compartilhamento">Compartilhamento</a>
+            <a href="#pt-retencao">Retenção e exclusão</a>
+            <a href="#pt-direitos">Suas escolhas e direitos</a>
+            <a href="#pt-criancas">Crianças e adolescentes</a>
+            <a href="#pt-seguranca">Segurança e alterações</a>
+            <a href="#pt-contato">Contato</a>
+          </nav>
+        </div>
+      </aside>
+
+      <article class="policy-body">
+        <div data-policy-lang="en" lang="en">
+          <section class="policy-section" id="en-scope">
+            <div class="section-heading"><span class="section-number">01</span><h2>Who we are and what this policy covers</h2></div>
+            <p>Street Wheelie Brasil is published by Villa Games Group (“we,” “us,” or “our”). This policy applies to the Street Wheelie Brasil game and its online and in-game features.</p>
+            <p>We handle information only as described here and as needed to operate the features you choose to use. The exact information depends on the game version, your settings, your region, and the services integrated into that version.</p>
+          </section>
+
+          <section class="policy-section" id="en-data">
+            <div class="section-heading"><span class="section-number">02</span><h2>Information we may handle</h2></div>
+            <p>Depending on the feature you use, the game and its service providers may process the following categories:</p>
+            <div class="inline-card"><strong>Online play and player profile</strong><p>Player or session identifiers, a nickname or other profile details you choose to provide, room and match state, gameplay actions, and connection information such as IP address and timestamps. This information supports multiplayer sessions, synchronizes game state, and helps protect the service.</p></div>
+            <div class="inline-card"><strong>Device, performance, and diagnostics</strong><p>The game records whether a player is connected on our custom server and uses Firebase Authentication for account sign-in. The game does not include a separate crash-reporting service; Google Play may automatically provide crash reports for the app.</p></div>
+            <div class="inline-card"><strong>Advertising information</strong><p>When ads are enabled, Google AdMob and the ad networks configured through its mediation may process device or advertising identifiers, IP address, device and app details, general region, ad views or interactions, consent choices, and fraud-prevention signals to deliver, measure, and limit ads. Mediation partners: AppLovin, InMobi, and Unity Ads.</p></div>
+            <div class="inline-card"><strong>In-game purchases</strong><p>Purchases are handled by the store or platform used to install the game. We may receive a product identifier, transaction status, and receipt or purchase token to verify the transaction, grant content, prevent fraud, and assist with purchase issues. The store processes payment details; we do not receive your complete payment-card number through the game.</p></div>
+            <div class="inline-card"><strong>Messages to support</strong><p>If you contact us, we receive the contact details and the information you include in your message so we can respond.</p></div>
+            <p>Confirmed providers: Firebase Authentication for account sign-in; our custom server for online play and connection status; Google Play for in-game purchases; and AppLovin, InMobi, and Unity Ads through AdMob mediation. Google Play may provide automatic crash reports; the game does not use a separate crash-reporting service.</p>
+          </section>
+
+          <section class="policy-section" id="en-uses">
+            <div class="section-heading"><span class="section-number">03</span><h2>How we use information</h2></div>
+            <ul>
+              <li>Operate online matches, connect players, and keep game progress or settings available where the game supports saving.</li>
+              <li>Deliver purchased items and verify transactions.</li>
+              <li>Show ads, measure their performance, limit repeated ads, and prevent invalid ad activity.</li>
+              <li>Maintain game security, detect abuse or fraud, troubleshoot errors, and improve stability.</li>
+              <li>Answer support requests and meet legal obligations.</li>
+            </ul>
+            <p>We do not use information for a purpose that is incompatible with this policy without providing any notice or choice required by applicable law.</p>
+          </section>
+
+          <section class="policy-section" id="en-ads">
+            <div class="section-heading"><span class="section-number">04</span><h2>Advertising and your choices</h2></div>
+            <p>Ads are served through Google AdMob, with AppLovin, InMobi, and Unity Ads participating through mediation. The current AdMob setup is configured for personalized advertising, subject to the consent, regional, and device settings that apply. These providers may use the advertising and device information described in this policy to select, deliver, measure, and limit ads and help prevent invalid activity. Each provider’s own privacy terms also apply.</p>
+            <p>European and US state privacy messages are enabled in AdMob Privacy &amp; Messaging. A Google consent message appeared once during a test using a VPN; which message appears and when can depend on your location and applicable settings. When a message appears, review and use the choices it provides to make or change the advertising privacy choices available to you. We have not confirmed that the game has a persistent in-game privacy-options button, so you may not be able to reopen those choices from the game after the message closes.</p>
+            <p>On Android, you can manage ad privacy and your advertising ID in device settings under Google &gt; All services &gt; Ads (menu names may vary). These device controls may limit some ad personalization, but they do not remove ads and may not control every ad network or other signals used to select ads. See <a href="https://support.google.com/android/answer/13720755?hl=en" target="_blank" rel="noopener noreferrer">Google’s Android ad privacy settings</a> for details.</p>
+          </section>
+
+          <section class="policy-section" id="en-purchases">
+            <div class="section-heading"><span class="section-number">05</span><h2>In-game purchases</h2></div>
+            <p>When you make an in-game purchase, the relevant app store or platform processes the payment under its own terms and privacy policy. We receive only the purchase information needed to validate the transaction and provide the item or service. For billing questions or refunds, use the store or platform that processed the purchase.</p>
+            <p>We do not store full payment-card details in the game. In-game purchases are processed through Google Play.</p>
+          </section>
+
+          <section class="policy-section" id="en-sharing">
+            <div class="section-heading"><span class="section-number">06</span><h2>When information is shared</h2></div>
+            <ul>
+              <li><strong>Other players:</strong> Multiplayer features may show your chosen nickname, character or vehicle appearance, and in-game actions to players in the same session.</li>
+              <li><strong>Service providers:</strong> We may share relevant information with providers that host online play, verify purchases, deliver and measure ads, provide analytics or crash reporting, or support customer service. They may process information only to provide their services to us and under applicable terms.</li>
+              <li><strong>Legal and safety reasons:</strong> We may disclose information when required by law or when reasonably necessary to protect players, our rights, or the security of the game.</li>
+              <li><strong>Business changes:</strong> If the game or its assets are transferred, relevant information may be transferred as part of that transaction, subject to applicable privacy requirements.</li>
+            </ul>
+            <p>We do not sell personal information for money. If a local law treats certain advertising disclosures as “sharing” or targeted advertising, we will provide the choices required by that law.</p>
+          </section>
+
+          <section class="policy-section" id="en-retention">
+            <div class="section-heading"><span class="section-number">07</span><h2>Retention and deletion</h2></div>
+            <p>Villa Games Group currently retains account and profile data, game progress, connection and diagnostic records, and purchase-validation records indefinitely. Google Play processes purchases under its own terms and privacy practices.</p>
+            <p>The game allows account creation, but account deletion is currently unavailable: there is no in-game deletion option, and we cannot process account-deletion requests manually by email. Do not publish this policy as final until an in-game deletion path and a working external request and fulfillment process are implemented. Any data retained after a completed deletion must be disclosed here with the applicable reason and retention period.</p>
+          </section>
+
+          <section class="policy-section" id="en-rights">
+            <div class="section-heading"><span class="section-number">08</span><h2>Your choices and privacy rights</h2></div>
+            <p>Depending on where you live, you may have the right to ask us to confirm whether we process your personal information, access or correct it, request deletion or restriction, receive a portable copy, learn about sharing, or withdraw consent where processing relies on consent.</p>
+            <p>To make a request, contact us using the details below. We may ask for information needed to verify your request and protect your account. If you are in Brazil, you may also exercise the rights provided by the LGPD, subject to its terms and applicable exceptions.</p>
+          </section>
+
+          <section class="policy-section" id="en-children">
+            <div class="section-heading"><span class="section-number">09</span><h2>Children and age requirements</h2></div>
+            <p>The game is intended for a broad general audience and has a 12+ rating in Brazil. It is not specifically designed or marketed to children. Where applicable law requires parental or guardian authorization, that authorization must be obtained before collecting a child’s personal information. If you believe a child has provided information without required authorization, contact us so we can review and take appropriate action.</p>
+          </section>
+
+          <section class="policy-section" id="en-security">
+            <div class="section-heading"><span class="section-number">10</span><h2>Security, international processing, and changes</h2></div>
+            <h3>Security</h3>
+            <p>We and our service providers use reasonable technical and organizational safeguards designed to protect information. No method of transmission or storage can be guaranteed to be completely secure.</p>
+            <h3>International processing</h3>
+            <p>Our service providers may process information in countries other than the country where you live. Where required, we use appropriate safeguards for those transfers and provide further information upon request.</p>
+            <h3>Changes to this policy</h3>
+            <p>We may update this policy when the game or its data practices change. We will update the effective date above and, when required, provide additional notice in the game.</p>
+          </section>
+
+          <section class="policy-section" id="en-contact">
+            <div class="section-heading"><span class="section-number">11</span><h2>Contact</h2></div>
+            <div class="contact-card">
+              <p>For privacy questions or requests, contact the Street Wheelie Brasil publisher:</p>
+              <div class="contact-line"><span>Publisher: Villa Games Group</span><span>Privacy email: <a href="mailto:contato@villagamesgroup.com">contato@villagamesgroup.com</a></span></div>
+            </div>
+          </section>
+        </div>
+
+        <div data-policy-lang="pt-BR" lang="pt-BR" hidden>
+          <section class="policy-section" id="pt-escopo">
+            <div class="section-heading"><span class="section-number">01</span><h2>Quem somos e o que esta política cobre</h2></div>
+            <p>Street Wheelie Brasil é publicado pela Villa Games Group (“nós” ou “nosso”). Esta política se aplica ao jogo Street Wheelie Brasil e aos seus recursos online e dentro do jogo.</p>
+            <p>Tratamos informações conforme descrito aqui e conforme necessário para operar os recursos que você escolher usar. As informações exatas dependem da versão do jogo, das suas configurações, da sua região e dos serviços integrados àquela versão.</p>
+          </section>
+
+          <section class="policy-section" id="pt-dados">
+            <div class="section-heading"><span class="section-number">02</span><h2>Informações que podemos tratar</h2></div>
+            <p>Dependendo do recurso utilizado, o jogo e seus prestadores de serviço podem tratar as seguintes categorias:</p>
+            <div class="inline-card"><strong>Jogo online e perfil do jogador</strong><p>Identificadores de jogador ou sessão, apelido ou outros dados de perfil que você escolher fornecer, estado de salas e partidas, ações de jogo e informações de conexão, como endereço IP e horários. Essas informações permitem partidas multiplayer, sincronizam o estado do jogo e ajudam a proteger o serviço.</p></div>
+            <div class="inline-card"><strong>Dispositivo, desempenho e diagnóstico</strong><p>O jogo registra se o jogador está conectado em nosso servidor próprio e usa o Firebase Authentication para autenticação da conta. O jogo não inclui um serviço separado de relatórios de falhas; o Google Play pode fornecer relatórios automáticos de falhas do aplicativo.</p></div>
+            <div class="inline-card"><strong>Informações de publicidade</strong><p>Quando os anúncios estiverem habilitados, o Google AdMob e as redes configuradas por meio de sua mediação poderão tratar identificadores do dispositivo ou de publicidade, endereço IP, dados do dispositivo e do aplicativo, região geral, visualizações ou interações com anúncios, escolhas de consentimento e sinais antifraude para exibir, medir e limitar anúncios. Parceiros de mediação: AppLovin, InMobi e Unity Ads.</p></div>
+            <div class="inline-card"><strong>Compras no jogo</strong><p>As compras são processadas pela loja ou plataforma usada para instalar o jogo. Podemos receber o identificador do produto, o status da transação e um recibo ou token de compra para validar a transação, liberar o conteúdo, prevenir fraude e ajudar com problemas de compra. A loja processa os dados de pagamento; não recebemos o número completo do seu cartão pelo jogo.</p></div>
+            <div class="inline-card"><strong>Mensagens ao suporte</strong><p>Se você entrar em contato conosco, receberemos os dados de contato e as informações incluídas na mensagem para responder.</p></div>
+            <p>Provedores confirmados: Firebase Authentication para autenticação da conta; nosso servidor próprio para partidas online e status de conexão; Google Play para compras no jogo; e AppLovin, InMobi e Unity Ads por meio da mediação do AdMob. O Google Play pode fornecer relatórios automáticos de falhas; o jogo não usa um serviço separado de relatórios de falhas.</p>
+          </section>
+
+          <section class="policy-section" id="pt-usos">
+            <div class="section-heading"><span class="section-number">03</span><h2>Como usamos as informações</h2></div>
+            <ul>
+              <li>Operar partidas online, conectar jogadores e manter o progresso ou as configurações quando o jogo oferece salvamento.</li>
+              <li>Entregar itens comprados e validar transações.</li>
+              <li>Exibir anúncios, medir seu desempenho, limitar anúncios repetidos e prevenir atividades inválidas.</li>
+              <li>Manter a segurança do jogo, detectar abuso ou fraude, corrigir erros e melhorar a estabilidade.</li>
+              <li>Responder solicitações de suporte e cumprir obrigações legais.</li>
+            </ul>
+            <p>Não usamos informações para uma finalidade incompatível com esta política sem fornecer os avisos ou as opções exigidos pela legislação aplicável.</p>
+          </section>
+
+          <section class="policy-section" id="pt-anuncios">
+            <div class="section-heading"><span class="section-number">04</span><h2>Publicidade e suas opções</h2></div>
+            <p>Os anúncios são veiculados pelo Google AdMob, com participação de AppLovin, InMobi e Unity Ads por meio da mediação. A configuração atual do AdMob está definida para publicidade personalizada, sujeita às escolhas de consentimento, aos controles regionais e às configurações do dispositivo aplicáveis. Esses provedores podem usar as informações de publicidade e do dispositivo descritas nesta política para selecionar, veicular, medir e limitar anúncios e ajudar a prevenir atividades inválidas. Os termos de privacidade de cada provedor também se aplicam.</p>
+            <p>Mensagens de privacidade para regulamentações europeias e estaduais dos EUA estão ativadas em Privacy &amp; Messaging do AdMob. Uma mensagem de consentimento do Google apareceu uma vez em um teste com VPN; a mensagem exibida e o momento podem depender da sua localização e das configurações aplicáveis. Quando uma mensagem aparecer, leia e use as opções oferecidas para fazer ou alterar as escolhas de privacidade de publicidade disponíveis. Ainda não confirmamos se o jogo tem um botão permanente de opções de privacidade; talvez não seja possível reabrir essas escolhas no jogo depois que a mensagem fechar.</p>
+            <p>No Android, você pode gerenciar a privacidade de anúncios e o identificador de publicidade nas configurações do dispositivo em Google &gt; Todos os serviços &gt; Anúncios (os nomes dos menus podem variar). Esses controles podem limitar algumas formas de personalização, mas não removem os anúncios e podem não controlar todas as redes de publicidade ou outros sinais usados para selecionar anúncios. Consulte as <a href="https://support.google.com/android/answer/13720755?hl=pt-BR" target="_blank" rel="noopener noreferrer">configurações de privacidade de anúncios do Android</a> do Google.</p>
+          </section>
+
+          <section class="policy-section" id="pt-compras">
+            <div class="section-heading"><span class="section-number">05</span><h2>Compras no jogo</h2></div>
+            <p>Ao fazer uma compra no jogo, a loja de aplicativos ou plataforma correspondente processa o pagamento conforme seus próprios termos e política de privacidade. Recebemos apenas as informações necessárias para validar a transação e fornecer o item ou serviço. Para dúvidas sobre cobrança ou reembolso, use a loja ou plataforma que processou a compra.</p>
+            <p>Não armazenamos os dados completos do cartão de pagamento no jogo. As compras dentro do jogo são processadas pelo Google Play.</p>
+          </section>
+
+          <section class="policy-section" id="pt-compartilhamento">
+            <div class="section-heading"><span class="section-number">06</span><h2>Quando compartilhamos informações</h2></div>
+            <ul>
+              <li><strong>Outros jogadores:</strong> recursos multiplayer podem mostrar seu apelido escolhido, aparência do personagem ou veículo e ações dentro do jogo aos jogadores da mesma sessão.</li>
+              <li><strong>Prestadores de serviço:</strong> podemos compartilhar informações necessárias com provedores que hospedam partidas online, validam compras, fornecem e medem anúncios, fazem análise ou relatórios de falhas, ou prestam suporte. Eles podem tratar as informações para nos fornecer esses serviços, conforme os termos aplicáveis.</li>
+              <li><strong>Motivos legais e de segurança:</strong> podemos divulgar informações quando a lei exigir ou quando isso for razoavelmente necessário para proteger jogadores, nossos direitos ou a segurança do jogo.</li>
+              <li><strong>Mudanças comerciais:</strong> se o jogo ou seus ativos forem transferidos, informações relevantes poderão ser transferidas como parte da operação, respeitados os requisitos de privacidade aplicáveis.</li>
+            </ul>
+            <p>Não vendemos informações pessoais por dinheiro. Se a legislação local considerar certas divulgações para publicidade como “compartilhamento” ou publicidade direcionada, forneceremos as opções exigidas por essa legislação.</p>
+          </section>
+
+          <section class="policy-section" id="pt-retencao">
+            <div class="section-heading"><span class="section-number">07</span><h2>Retenção e exclusão</h2></div>
+            <p>A Villa Games Group atualmente mantém indefinidamente os dados de conta e perfil, o progresso no jogo, os registros de conexão e diagnóstico e os registros usados para validar compras. O Google Play processa as compras conforme seus próprios termos e práticas de privacidade.</p>
+            <p>O jogo permite a criação de contas, mas a exclusão de conta não está disponível no momento: não há uma opção de exclusão dentro do jogo, e não conseguimos processar solicitações de exclusão manualmente por e-mail. Não publique esta política como versão final antes de implementar um caminho de exclusão dentro do jogo e um processo externo funcional para solicitar e concluir a exclusão. Qualquer dado mantido após a exclusão deverá ser descrito aqui, com o motivo e o prazo aplicáveis.</p>
+          </section>
+
+          <section class="policy-section" id="pt-direitos">
+            <div class="section-heading"><span class="section-number">08</span><h2>Suas escolhas e direitos de privacidade</h2></div>
+            <p>Dependendo de onde você mora, você pode ter o direito de pedir confirmação sobre o tratamento de seus dados pessoais, acessá-los ou corrigi-los, solicitar exclusão ou restrição, receber uma cópia portável, saber sobre compartilhamentos ou revogar consentimento quando o tratamento depender dele.</p>
+            <p>Para fazer uma solicitação, entre em contato pelos dados abaixo. Podemos pedir informações para confirmar sua identidade e proteger sua conta. No Brasil, você também pode exercer os direitos previstos na LGPD, conforme seus termos e exceções aplicáveis.</p>
+          </section>
+
+          <section class="policy-section" id="pt-criancas">
+            <div class="section-heading"><span class="section-number">09</span><h2>Crianças e faixa etária</h2></div>
+            <p>O jogo é destinado ao público geral e tem classificação 12+ no Brasil. Ele não é desenvolvido nem divulgado especificamente para crianças. Quando a lei exigir autorização de pai, mãe ou responsável, ela deve ser obtida antes da coleta de informações pessoais de uma criança. Se você acredita que uma criança forneceu informações sem a autorização exigida, entre em contato para que possamos analisar e tomar as medidas adequadas.</p>
+          </section>
+
+          <section class="policy-section" id="pt-seguranca">
+            <div class="section-heading"><span class="section-number">10</span><h2>Segurança, tratamento internacional e alterações</h2></div>
+            <h3>Segurança</h3>
+            <p>Nós e nossos prestadores de serviço usamos medidas técnicas e organizacionais razoáveis para proteger informações. Nenhum método de transmissão ou armazenamento pode ser garantido como totalmente seguro.</p>
+            <h3>Tratamento internacional</h3>
+            <p>Nossos prestadores podem tratar informações em países diferentes daquele onde você mora. Quando exigido, usamos salvaguardas adequadas para essas transferências e fornecemos mais informações mediante solicitação.</p>
+            <h3>Alterações desta política</h3>
+            <p>Podemos atualizar esta política quando o jogo ou suas práticas de dados mudarem. Atualizaremos a data de vigência acima e, quando necessário, forneceremos avisos adicionais no jogo.</p>
+          </section>
+
+          <section class="policy-section" id="pt-contato">
+            <div class="section-heading"><span class="section-number">11</span><h2>Contato</h2></div>
+            <div class="contact-card">
+              <p>Para dúvidas ou solicitações de privacidade, entre em contato com o responsável por Street Wheelie Brasil:</p>
+              <div class="contact-line"><span>Responsável: Villa Games Group</span><span>E-mail de privacidade: <a href="mailto:contato@villagamesgroup.com">contato@villagamesgroup.com</a></span></div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span class="footer-mark"><span class="flag-stripe" aria-hidden="true"></span>Street Wheelie Brasil</span>
+    <span data-policy-lang="en" lang="en">Privacy Policy · Effective October 29, 2026</span>
+    <span data-policy-lang="pt-BR" lang="pt-BR" hidden>Política de Privacidade · Vigente desde 29 de outubro de 2026</span>
+  </footer>
+
+  <script>
+    (() => {
+      const sections = document.querySelectorAll("[data-policy-lang]");
+      const buttons = document.querySelectorAll("[data-language-button]");
+      const setLanguage = (language) => {
+        sections.forEach((section) => { section.hidden = section.dataset.policyLang !== language; });
+        buttons.forEach((button) => { button.setAttribute("aria-pressed", String(button.dataset.languageButton === language)); });
+        document.documentElement.lang = language;
+        document.title = language === "pt-BR" ? "Política de Privacidade — Street Wheelie Brasil" : "Privacy Policy — Street Wheelie Brasil";
+      };
+      buttons.forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.languageButton)));
+    })();
+  </script>
+</body>
+</html>
