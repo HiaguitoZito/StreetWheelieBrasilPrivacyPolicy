@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1411" />
+    <meta name="description" content="Securely request deletion of your Villa Games Group account." />
+    <title>Delete account | Villa Games Group</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        window.setTimeout(() => {
+          if (document.documentElement.dataset.firebaseReady !== "true") {
+            const error = document.getElementById("login-error");
+            error.textContent = location.protocol === "file:"
+              ? "Open this page through a local web server. Firebase cannot run when the HTML file is opened directly."
+              : "The sign-in service could not load. Check your connection and refresh the page.";
+            error.hidden = false;
+          }
+        }, 8000);
+      });
+    </script>
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="bar top-bar">
+        <div class="brand"><span class="brand-symbol" aria-hidden="true">V<span>.</span></span><span>VILLA GAMES GROUP</span></div>
+        <span class="bar-detail">ACCOUNT SUPPORT</span>
+      </header>
+
+      <main class="content">
+        <div class="glow glow-left" aria-hidden="true"></div>
+        <div class="glow glow-right" aria-hidden="true"></div>
+
+        <section class="panel" id="login-view" aria-labelledby="login-title">
+          <div class="panel-head"><span class="overline">ACCOUNT DELETION</span><span class="step">01 / 02</span></div>
+          <div class="panel-body">
+            <div class="panel-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h1 id="login-title">Sign in to continue</h1>
+            <p class="description">To protect your account, please sign in before requesting deletion.</p>
+            <p class="notice" id="setup-notice" role="status" hidden>Firebase is not configured yet. Add your web app settings in <code>firebase-config.js</code>.</p>
+            <form id="login-form">
+              <label for="login-email">Email address</label>
+              <input id="login-email" name="email" type="email" autocomplete="username" placeholder="you@example.com" required />
+              <label for="login-password">Password</label>
+              <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required />
+              <p class="error" id="login-error" role="alert" hidden></p>
+              <button class="button primary" id="login-button" type="submit">Continue with email <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="divider"><span>OR</span></div>
+            <button class="button google" id="google-button" type="button"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.25 5.48-4.76 7.18l7.73 6C44.42 38.03 46.98 31.88 46.98 24.55z"/><path fill="#FBBC05" d="M10.53 28.59A14.43 14.43 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.2A24.02 24.02 0 0 0 0 24c0 3.87.93 7.51 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.91-5.8l-7.73-6C30.03 37.65 27.29 38.5 24 38.5c-6.26 0-11.57-4.22-13.47-9.91l-7.97 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span>Continue with Google</span></button>
+          </div>
+        </section>
+
+        <section class="panel" id="delete-view" aria-labelledby="delete-title" hidden>
+          <div class="panel-head"><span class="overline">ACCOUNT DELETION</span><span class="step">02 / 02</span></div>
+          <div class="panel-body">
+            <div class="panel-icon danger-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 14h10l1-14M10 11v6M14 11v6"/></svg></div>
+            <h1 id="delete-title">Delete your account?</h1>
+            <p class="description">Signed in as <strong id="account-email"></strong>. This action is permanent and cannot be undone.</p>
+            <div class="warning"><strong>Before you continue</strong><p>Your deletion request will be sent to Villa Games Group. You’ll be signed out after it’s accepted.</p></div>
+            <form id="delete-form">
+              <label for="confirm-text">Type <strong>DELETE</strong> to confirm</label>
+              <input id="confirm-text" name="confirmation" type="text" placeholder="DELETE" autocomplete="off" spellcheck="false" required />
+              <p class="error" id="delete-error" role="alert" hidden></p>
+              <button class="button danger" id="delete-button" type="submit">Delete my account <span aria-hidden="true">→</span></button>
+            </form>
+            <button class="text-button" id="sign-out-button" type="button">Cancel and sign out</button>
+          </div>
+        </section>
+
+        <section class="panel" id="success-view" aria-labelledby="success-title" hidden>
+          <div class="panel-head"><span class="overline">ACCOUNT DELETION</span><span class="step">COMPLETE</span></div>
+          <div class="panel-body"><div class="panel-icon success-icon" aria-hidden="true">✓</div><h1 id="success-title">Request received.</h1><p class="description">Villa Games Group accepted your account deletion request. You can close this page.</p></div>
+        </section>
+      </main>
+
+      <footer class="bar bottom-bar"><span>© <span id="year"></span> VILLA GAMES GROUP</span><span>YOUR ACCOUNT, YOUR CONTROL</span></footer>
+    </div>
+  </body>
+</html>
