@@ -24,6 +24,11 @@ const deleteButton = document.getElementById("delete-button");
 const signOutButton = document.getElementById("sign-out-button");
 const loginError = document.getElementById("login-error");
 const deleteError = document.getElementById("delete-error");
+const accountEmail = document.getElementById("account-email");
+const t = (key, params) => window.i18n.t(key, params);
+let loginBusy = false;
+let deleteBusy = false;
+let signedInEmail = "";
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -33,45 +38,67 @@ function showView(view) {
   successView.hidden = view !== "success";
 }
 
-function showError(element, message) {
-  element.textContent = message;
+// Errors are stored as translation keys so they can be re-translated when the language changes.
+function renderError(element) {
+  const params = element.dataset.errorParams ? JSON.parse(element.dataset.errorParams) : undefined;
+  element.textContent = t(element.dataset.errorKey, params);
+}
+
+function showError(element, key, params) {
+  element.dataset.errorKey = key;
+  element.dataset.errorParams = params ? JSON.stringify(params) : "";
+  renderError(element);
   element.hidden = false;
 }
 
 function clearError(element) {
+  delete element.dataset.errorKey;
+  delete element.dataset.errorParams;
   element.textContent = "";
   element.hidden = true;
 }
+
+function renderDynamicText() {
+  accountEmail.textContent = signedInEmail || t("yourAccount");
+  loginButton.firstChild.textContent = t(loginBusy ? "signingIn" : "continueEmail");
+  deleteButton.firstChild.textContent = t(deleteBusy ? "sendingRequest" : "deleteButton");
+  for (const element of [loginError, deleteError]) {
+    if (element.dataset.errorKey) renderError(element);
+  }
+}
+
+window.i18n.onChange(renderDynamicText);
 
 function authErrorMessage(error) {
   switch (error?.code) {
     case "auth/invalid-credential":
     case "auth/wrong-password":
     case "auth/user-not-found":
-      return "The email or password is incorrect.";
+      return "errInvalidCredential";
     case "auth/account-exists-with-different-credential":
-      return "This email uses a different sign-in method. Try the other option.";
+      return "errDifferentCredential";
     case "auth/popup-closed-by-user":
-      return "Google sign-in was cancelled.";
+      return "errPopupClosed";
     case "auth/popup-blocked":
-      return "Allow pop-ups for this website, then try Google sign-in again.";
+      return "errPopupBlocked";
     case "auth/operation-not-allowed":
-      return "This sign-in method is not enabled in Firebase.";
+      return "errOperationNotAllowed";
     case "auth/unauthorized-domain":
-      return "This domain is not authorized in Firebase Authentication.";
+      return "errUnauthorizedDomain";
     case "auth/too-many-requests":
-      return "Too many attempts. Please wait and try again.";
+      return "errTooManyRequests";
     case "auth/network-request-failed":
-      return "Could not connect. Please check your internet connection.";
+      return "errNetwork";
     default:
-      return "Sign-in failed. Please try again.";
+      return "errSignInFailed";
   }
 }
 
 function setLoginBusy(busy) {
+  loginBusy = busy;
   loginButton.disabled = busy;
   googleButton.disabled = busy;
-  loginButton.firstChild.textContent = busy ? "Signing in… " : "Continue with email ";
+  loginButton.firstChild.textContent = t(busy ? "signingIn" : "continueEmail");
 }
 
 async function start() {
@@ -93,7 +120,8 @@ async function start() {
       loginForm.reset();
       deleteForm.reset();
       if (user) {
-        document.getElementById("account-email").textContent = user.email || "your account";
+        signedInEmail = user.email || "";
+        accountEmail.textContent = signedInEmail || t("yourAccount");
         showView("delete");
       } else {
         showView("login");
@@ -107,7 +135,7 @@ async function start() {
         await setPersistence(auth, inMemoryPersistence);
         await signOut(auth);
       } catch (error) {
-        showError(loginError, "The secure sign-in session could not be prepared. Refresh and try again.");
+        showError(loginError, "errSessionPrepare");
       } finally {
         sessionPrepared = true;
         document.documentElement.dataset.firebaseReady = "true";
@@ -147,17 +175,20 @@ async function start() {
       clearError(deleteError);
       const user = auth.currentUser;
       if (!user) {
-        showError(deleteError, "Your session ended. Please sign in again.");
+        showError(deleteError, "errSessionEnded");
         return;
       }
-      if (deleteForm.elements.confirmation.value.trim() !== "DELETE") {
-        showError(deleteError, "Type DELETE exactly to confirm.");
+      const confirmation = deleteForm.elements.confirmation.value.trim();
+      const confirmWord = t("confirmWord");
+      if (confirmation !== confirmWord && confirmation !== "DELETE") {
+        showError(deleteError, "errTypeExactly", { word: confirmWord });
         return;
       }
 
       deleteButton.disabled = true;
       signOutButton.disabled = true;
-      deleteButton.firstChild.textContent = "Sending request… ";
+      deleteBusy = true;
+      deleteButton.firstChild.textContent = t("sendingRequest");
       deleting = true;
       try {
         const token = await getIdToken(user, true);
@@ -170,9 +201,9 @@ async function start() {
         });
         if (!response.ok) {
           if (response.status === 401 || response.status === 403) {
-            throw new Error("Your session was not accepted. Please sign out and sign in again.");
+            throw Object.assign(new Error("Session rejected"), { i18nKey: "errSessionRejected" });
           }
-          throw new Error("The deletion request could not be completed. Please try again later.");
+          throw Object.assign(new Error("Deletion failed"), { i18nKey: "errDeleteFailed" });
         }
 
         completed = true;
@@ -182,13 +213,14 @@ async function start() {
       } catch (error) {
         console.error("Account deletion request failed:", error);
         showError(deleteError, error instanceof TypeError
-          ? "The browser could not call the deletion API. Check the API’s CORS settings for this website and try again."
-          : error.message || "The deletion request failed. Please try again.");
+          ? "errCors"
+          : error.i18nKey || "errDeleteGeneric");
       } finally {
         deleting = false;
+        deleteBusy = false;
         deleteButton.disabled = false;
         signOutButton.disabled = false;
-        deleteButton.firstChild.textContent = "Delete my account ";
+        deleteButton.firstChild.textContent = t("deleteButton");
       }
     });
 
@@ -197,7 +229,7 @@ async function start() {
       try {
         await signOut(auth);
       } catch {
-        showError(deleteError, "Could not sign out. Please try again.");
+        showError(deleteError, "errSignOut");
       } finally {
         signOutButton.disabled = false;
       }
@@ -205,7 +237,7 @@ async function start() {
   } catch (error) {
     document.documentElement.dataset.firebaseReady = "true";
     setLoginBusy(false);
-    showError(loginError, "Firebase could not start. Check the web app configuration.");
+    showError(loginError, "errFirebaseStart");
   }
 }
 
