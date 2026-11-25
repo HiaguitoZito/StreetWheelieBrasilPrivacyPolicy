@@ -12,7 +12,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 import { firebaseConfig } from "./firebase-config.js";
 
-const DELETE_URL = "https://api.villagamesgroup.com/user/delete";
+const DELETE_URL = "https://swb-usermanager.villagamesgroup.com/user/delete";
 const loginView = document.getElementById("login-view");
 const deleteView = document.getElementById("delete-view");
 const successView = document.getElementById("success-view");
